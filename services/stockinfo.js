@@ -1,5 +1,6 @@
 const cheerio = require('cheerio');
 const _ = require('lodash');
+const papa = require('papaparse');
 
 module.exports = {
     parseStockFinancialHtml : function (html) {
@@ -49,5 +50,17 @@ module.exports = {
         
         return oData;
     },
-    
+    parseStockTechnicalData : async function (stream) {
+        const asyncParse = function (file) {
+            return new Promise(function(complete, error) {
+                papa.parse(file, {
+                    header : true,
+                    complete,
+                    error
+                });
+            });
+        }
+
+        return await asyncParse(stream);
+    }
 };

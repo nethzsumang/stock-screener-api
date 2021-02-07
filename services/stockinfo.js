@@ -9,7 +9,6 @@ module.exports = {
             let { data } = await getStockFinancialHtml(stockCode);
             return module.exports.parseStockFinancialHtml(data);
         } catch (oException) {
-            console.log(oException);
             return {};
         }
     },
@@ -36,7 +35,6 @@ module.exports = {
                 })
             });
         } catch (oException) {
-            console.log(oException);
             return oException;
         }
     },

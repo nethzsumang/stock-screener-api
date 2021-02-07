@@ -11,6 +11,7 @@ const stockInfoController = require('./controllers/stockinfo');
 app.get('/api/v1/stocklist', stockListController.getStockList);
 app.get('/api/v1/stockinfo/:stock/financials', stockInfoController.getStockFinancial);
 app.get('/api/v1/stockinfo/:stock/technicals', stockInfoController.getStockTechnical);
+app.get('/api/v1/stockinfo/:stock/combined', stockInfoController.getCombinedStockInfo);
 
 app.listen(port, () => {
   console.log(`Stock List API listening at http://localhost:${port}`);
